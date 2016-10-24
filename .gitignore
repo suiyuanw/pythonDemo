@@ -1,0 +1,4 @@
+wufdblog-venv
+mysite/__pycache__
+blogs/__pycache__
+blogs/migrations/__pycache__
