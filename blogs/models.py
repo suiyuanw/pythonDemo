@@ -19,6 +19,7 @@ class Post(models.Model):
 
     def dict(self):
         return {
+            'id': self.id,
             'author': self.author.username,
             'title': self.title,
             'text': self.text,
