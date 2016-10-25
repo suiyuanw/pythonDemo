@@ -1,42 +1,22 @@
 <html>
-	<head>
-		<title>wufd's blog</title>
-	</head>
+    <head>
+    <title>wufd's blog</title>
+    </head>
 
-	<body>
-		<div>
-			<h1><a href="">WuFD Blog</a></h1>
-		</div>
-
-		<div>
-			<p>
-				published: 25.10.2016 11:09
-			</p>
-
-			<h2>
-				<a href="">My first post</a>
-			</h2>
-
-			<p>
-				Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-			</p>
-		</div>
-
-		<div>
-            <p>
-            	published: 14.06.2014, 12:14
-            </p>
-
-            <h2>
-            	<a href="">My second post</a>
-            </h2>
-            
-            <p>
-            	Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.
-            </p>
+    <body>
+        <div>
+            <h1><a href="">WuFD Blog</a></h1>
         </div>
 
-		<p>Hi there!</p>
-    	<p>It works!</p>
-	</body>
+        <div style="margin-top: 50px;">
+            {% for post in posts %}
+                <div>
+                    <h1><a href="">{{ post.title }}</a></h1>
+                    <p>发布时间: {{ post.published_date }}</p>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+    </body>
 </html>

@@ -1,6 +1,16 @@
 from django.shortcuts import render
+from django.utils import timezone
+from .models import Post
+
 
 def post_list(request):
-	return render(request, 'blogs/post_list.html', {
-		
-		})
+    query = {
+        'published_date__lte': timezone.now(),
+    }
+    posts = Post.objects.filter(**query).order_by('published_date')
+    result = []
+    for post in posts:
+        result.append(post.dict())
+    return render(request, 'blogs/post_list.html', {
+        'posts': result,
+    })
