@@ -1,4 +1,5 @@
 wufdblog-venv
+static
 *.pyc
 db.sqlite3
 .DS_Store
