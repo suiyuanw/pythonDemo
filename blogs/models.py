@@ -1,3 +1,4 @@
+import pytz as pytz
 from django.db import models
 from django.utils import timezone
 
@@ -18,11 +19,14 @@ class Post(models.Model):
         return self.title
 
     def to_dict(self):
+        localtz = pytz.timezone('Asia/Shanghai')
         return {
             'id': self.id,
             'author': self.author.username,
             'title': self.title,
             'text': self.text,
-            'created_date': self.created_date.strftime("%Y.%m.%d %H:%M") if self.created_date else '',
-            'published_date': self.published_date.strftime("%Y.%m.%d %H:%M") if self.published_date else '',
+            'created_date': self.created_date.astimezone(localtz).strftime(
+                "%Y.%m.%d %H:%M") if self.created_date else '',
+            'published_date': self.published_date.astimezone(localtz).strftime(
+                "%Y.%m.%d %H:%M") if self.published_date else '',
         }
