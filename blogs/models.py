@@ -23,6 +23,6 @@ class Post(models.Model):
             'author': self.author.username,
             'title': self.title,
             'text': self.text,
-            'created_date': self.created_date,
-            'published_date': self.published_date,
+            'created_date': self.created_date.strftime("%Y.%m.%d %H:%M") if self.created_date else '',
+            'published_date': self.published_date.strftime("%Y.%m.%d %H:%M") if self.published_date else '',
         }
