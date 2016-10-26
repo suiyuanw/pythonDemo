@@ -16,7 +16,7 @@ def post_list(request):
     posts = Post.objects.filter(**query).order_by('published_date')
     result = []
     for post in posts:
-        result.append(post.dict())
+        result.append(post.to_dict())
     return render(request, 'blogs/post_list.html', {
         'posts': result,
     })
@@ -25,7 +25,7 @@ def post_list(request):
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blogs/post_detail.html', {
-        'post': post.dict(),
+        'post': post.to_dict(),
     })
 
 

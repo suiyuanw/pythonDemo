@@ -17,7 +17,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-    def dict(self):
+    def to_dict(self):
         return {
             'id': self.id,
             'author': self.author.username,
