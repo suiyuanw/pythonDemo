@@ -2,7 +2,6 @@ wufdblog-venv
 /static
 *.pyc
 *.sqlite3
-*.sqlite
 .DS_Store
 __pycache__
 mysite/__pycache__

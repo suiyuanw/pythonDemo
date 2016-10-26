@@ -30,7 +30,7 @@ def post_detail(request, pk):
 
 
 def post_new(request):
-    if request.method == 'POST':
+    if request.method == 'post':
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
